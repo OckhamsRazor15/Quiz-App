@@ -5,9 +5,9 @@
 		<!-- Meta Tags -->
 		<meta charset="utf-8"/>
 		<!-- Stylesheets -->
-		<link rel="stylesheet" href="styles/reset.css">
+		<link rel="stylesheet" href="css/reset.css">
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,900italic' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="styles/style.css"/> 
+		<link rel="stylesheet" href="css/main.css"/>
 	</head>
 	<body>
 		
@@ -44,18 +44,18 @@
 
 		<section class="game"> <!-- Guessing Section -->
 			
-			<h2 id="feedback">LET'S DO THIS!</h2>
+			<h2 id="feedback"></h2>
 
 			<form>
-				<input type="text" name="userGuess" id="userGuess" class="text" maxlength="3" autocomplete="off" placeholder="Enter your Guess" required/>
-      			<input type="submit" id="guessButton" class="button" name="submit" value="Guess"/>
+				<input type="submit" id="startButton" class="button" name="submit" value="Start the quiz!"/>
 			</form>
-			
-      		<p>Guess #<span id="count">0</span>!</p>
-			
-			<ul id="guessList" class="guessBox clearfix">
+			<ul id="answerList" class="guessBox clearfix">
 
 			</ul>
+
+      		<p >Your score is <span id="count">0</span>/5!</p>
+			<h2 id="score"></h2>
+			
 
 		</section>
 		<!-- JavaScript -->
