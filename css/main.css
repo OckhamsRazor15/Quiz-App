@@ -297,7 +297,7 @@ input:focus {
 }
 
 ul.guessBox {
-	height: 80px;
+	height: 130px;
 	margin: 10px auto 0;
 	background: #11a8ab;
 	padding: 0.5em;
@@ -318,4 +318,8 @@ ul.guessBox li {
 	width: 95%;
 	margin: 0.2em;
 	color: #fff;
+}
+
+ul.guessBox li:hover {
+	cursor: pointer;
 }

@@ -12,9 +12,11 @@ $(document).ready(function(){
   	});
 
   	var questions = [
-  	{question: "Question 1?", answer1: "answer 1", answer2: "answer 2", answer3: "answer 3", correctAnswer: "answer 1", feedback: "Great Answer!"}, 
-  	{question: "question 2?", answer1: "d", answer2: "yes", correctAnswer: "d", feedback: "Great Answer!"},
-  	{question: "question 3?", answer1: "d", answer2: "yes", correctAnswer: "d", feedback: "Great Answer!"}];
+  	{question: "What car do you drive?", answer1: "BMW", answer2: "Mercedes", answer3: "Camry", correctAnswer: "Mercedes", feedback: "How much is the lease?"}, 
+  	{question: "Are you a good person?", answer1: "Yes", answer2: "No", answer3: "Ask my friends", correctAnswer: "Ask my friends", feedback: "Honorable answer."},
+  	{question: "What is the correct contraction for 'he is'?", answer1: "his", answer2: "he's", answer3: "contraction vor@na?",correctAnswer: "he's", feedback: "his such a good guy!"},
+  	{question: "How old were you when you were young?", answer1: "8", answer2: "17", answer3: "Older than you apeh", correctAnswer:"Older than you apeh", feedback: "well, look at you."},
+  	{question: "What type of shoes must you be wearing for a rabiz kick?", answer1: "tsitsaks", answer2: "adidas", answer3: "crocs", correctAnswer: "tsitsaks", feedback: "vay ko" }];
 
   	$("#startButton").click(function(e){
   		e.preventDefault();
@@ -32,23 +34,25 @@ $(document).ready(function(){
   	var counter = 0;
   	$("#answerList").on("click", "li", function(){
 		if ($(this).text() == questions[counter].correctAnswer){
-			if(counter < questions.length){
-			$("#score").text(questions[counter].feedback);
-			counter = (counter + 1) % questions.length;
-			count++;
-			nextQuestion();
-			}else if (counter == questions.length - 1) {
-				$("#answerList").html("<h2>All finished!</h2>");
-			}
-			}else {
+				$("#score").text(questions[counter].feedback);
+				count++;
+				counter++;
+				$("#count").text(count);
+			if (counter >= questions.length) {
+				$("#feedback").text("Refresh the page to play again");
+				$("#answerList").html("<h2>All finished! See score below!</h2>");
+			}nextQuestion();
+		}else {
+				counter++;
 				$("#score").text("Maybe next time..");
+				nextQuestion();
 			}
-			console.log(counter == questions.length - 1);
+			//console.log(counter == questions.length);
  	});
   	function nextQuestion(){
   			$("#feedback").text(questions[counter].question);
   			$("#answerList").html("<li>" + questions[counter].answer1 + "</li><br />" + "<li>" + questions[counter].answer2 + "</li><br/>" + "<li>" + questions[counter].answer3 + "</li><br/>");
-  			$("#count").text(count);
+  			
   }
   	
 	//display question first - check
