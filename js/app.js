@@ -38,21 +38,23 @@ $(document).ready(function(){
 				count++;
 				counter++;
 				$("#count").text(count);
-			if (counter >= questions.length) {
-				$("#feedback").text("Refresh the page to play again");
-				$("#answerList").html("<h2>All finished! See score below!</h2>");
-			}nextQuestion();
-		}else {
+				nextQuestion();
+			}else {
 				counter++;
 				$("#score").text("Maybe next time..");
 				nextQuestion();
 			}
+
 			//console.log(counter == questions.length);
  	});
   	function nextQuestion(){
-  			$("#feedback").text(questions[counter].question);
-  			$("#answerList").html("<li>" + questions[counter].answer1 + "</li><br />" + "<li>" + questions[counter].answer2 + "</li><br/>" + "<li>" + questions[counter].answer3 + "</li><br/>");
-  			
+  			if (counter >= questions.length) {
+            	$("#feedback").text("Refresh the page to play again");
+            	$("#answerList").html("<h2>All finished! See score below!</h2>");
+       	 	}else {
+          		$("#feedback").text(questions[counter].question);
+          		$("#answerList").html("<li>" + questions[counter].answer1 + "</li><br />" + "<li>" + questions[counter].answer2 + "</li><br/>" + "<li>" + questions[counter].answer3 + "</li><br/>");
+      		}    
   }
   	
 	//display question first - check
